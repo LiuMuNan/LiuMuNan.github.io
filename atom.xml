@@ -39,33 +39,6 @@
   </entry>
   
   <entry>
-    <title>C++基础</title>
-    <link href="https://yoursite.com/2020/03/31/C++%E5%9F%BA%E7%A1%80/"/>
-    <id>https://yoursite.com/2020/03/31/C++%E5%9F%BA%E7%A1%80/</id>
-    <published>2020-03-31T05:48:28.000Z</published>
-    <updated>2020-03-31T07:50:48.288Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p>复习C++Primer基础知识过程中的记录</p><h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><h4 id="算数类型-arithmetic-type-、空类型-void"><a href="#算数类型-arithmetic-type-、空类型-void" class="headerlink" title="算数类型(arithmetic type)、空类型(void)"></a>算数类型(arithmetic type)、空类型(void)</h4><ul><li>算数类型：字符型、整型、布尔值、浮点数</li><li>空类型</li></ul><h4 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h4><h4 id="字面值常量："><a href="#字面值常量：" class="headerlink" title="字面值常量："></a>字面值常量：</h4><h3 id="2-变量："><a href="#2-变量：" class="headerlink" title="2/变量："></a>2/变量：</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;C-基础&quot;&gt;&lt;a href=&quot;#C-基础&quot; class=&quot;headerlink&quot; title=&quot;C++基础&quot;&gt;&lt;/a&gt;C++基础&lt;/h1&gt;&lt;p&gt;复习C++Primer基础知识过程中的记录&lt;/p&gt;
-&lt;h2 id=&quot;Chapter2-基本内置类型：&quot;&gt;&lt;a href=
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://yoursite.com/categories/C/"/>
-    
-    
-      <category term="C++" scheme="https://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux</title>
     <link href="https://yoursite.com/2020/03/31/Linux/"/>
     <id>https://yoursite.com/2020/03/31/Linux/</id>
@@ -92,6 +65,33 @@
     
     
       <category term="Linux" scheme="https://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++基础</title>
+    <link href="https://yoursite.com/2020/03/31/C++%E5%9F%BA%E7%A1%80/"/>
+    <id>https://yoursite.com/2020/03/31/C++%E5%9F%BA%E7%A1%80/</id>
+    <published>2020-03-31T05:48:28.000Z</published>
+    <updated>2020-03-31T07:50:48.288Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p>复习C++Primer基础知识过程中的记录</p><h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><h4 id="算数类型-arithmetic-type-、空类型-void"><a href="#算数类型-arithmetic-type-、空类型-void" class="headerlink" title="算数类型(arithmetic type)、空类型(void)"></a>算数类型(arithmetic type)、空类型(void)</h4><ul><li>算数类型：字符型、整型、布尔值、浮点数</li><li>空类型</li></ul><h4 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h4><h4 id="字面值常量："><a href="#字面值常量：" class="headerlink" title="字面值常量："></a>字面值常量：</h4><h3 id="2-变量："><a href="#2-变量：" class="headerlink" title="2/变量："></a>2/变量：</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;C-基础&quot;&gt;&lt;a href=&quot;#C-基础&quot; class=&quot;headerlink&quot; title=&quot;C++基础&quot;&gt;&lt;/a&gt;C++基础&lt;/h1&gt;&lt;p&gt;复习C++Primer基础知识过程中的记录&lt;/p&gt;
+&lt;h2 id=&quot;Chapter2-基本内置类型：&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://yoursite.com/categories/C/"/>
+    
+    
+      <category term="C++" scheme="https://yoursite.com/tags/C/"/>
     
   </entry>
   
