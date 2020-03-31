@@ -2,12 +2,12 @@
 <search>
   <entry>
     <title>爱你哟嘤嘤嘤</title>
-    <url>/2020/03/31/%E7%88%B1%E4%BD%A0%E5%93%9F%E5%98%A4%E5%98%A4%E5%98%A4/</url>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/%E7%88%B1%E4%BD%A0%E5%93%9F%E5%98%A4%E5%98%A4%E5%98%A4/</url>
     <content><![CDATA[<h1 id="今天在搭博客，然后现在想你啦宝贝"><a href="#今天在搭博客，然后现在想你啦宝贝" class="headerlink" title="今天在搭博客，然后现在想你啦宝贝"></a>今天在搭博客，然后现在想你啦宝贝</h1>]]></content>
   </entry>
   <entry>
     <title>C++基础</title>
-    <url>/2020/03/31/C++%E5%9F%BA%E7%A1%80/</url>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/C++%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p>复习C++Primer基础知识过程中的记录</p>
 <h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><h4 id="算数类型-arithmetic-type-、空类型-void"><a href="#算数类型-arithmetic-type-、空类型-void" class="headerlink" title="算数类型(arithmetic type)、空类型(void)"></a>算数类型(arithmetic type)、空类型(void)</h4><ul>
 <li>算数类型：字符型、整型、布尔值、浮点数</li>
@@ -23,7 +23,7 @@
   </entry>
   <entry>
     <title>Linux</title>
-    <url>/2020/03/31/Linux/</url>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/Linux/</url>
     <content><![CDATA[<h1 id="Linux-配置"><a href="#Linux-配置" class="headerlink" title="Linux 配置"></a>Linux 配置</h1><p>由于多次重装Linux系统，或者部署环境需要，把重复的配置过程记录一下：</p>
 <ul>
 <li>zsh &amp; oh-my-zsh</li>
@@ -40,7 +40,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2020/03/31/hello-world/</url>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
