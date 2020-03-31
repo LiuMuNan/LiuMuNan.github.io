@@ -2,13 +2,24 @@
 <search>
   <entry>
     <title>爱你哟嘤嘤嘤</title>
-    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/nothing/</url>
-    <content><![CDATA[<h1 id="今天在做博客嘻嘻，然后现在想你啦"><a href="#今天在做博客嘻嘻，然后现在想你啦" class="headerlink" title="今天在做博客嘻嘻，然后现在想你啦"></a>今天在做博客嘻嘻，然后现在想你啦</h1>]]></content>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/%E7%88%B1%E4%BD%A0%E5%93%9F%E5%98%A4%E5%98%A4%E5%98%A4/</url>
+    <content><![CDATA[<p>title: 爱你哟嘤嘤嘤<br>date: 2020-03-31 16:10:26<br>tags:</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="今天在搭博客，然后现在想你啦宝贝"><a href="#今天在搭博客，然后现在想你啦宝贝" class="headerlink" title="今天在搭博客，然后现在想你啦宝贝"></a>今天在搭博客，然后现在想你啦宝贝</h1>]]></content>
+  </entry>
+  <entry>
+    <title>C++基础</title>
+    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/C++%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p>复习C++Primer基础知识过程中的记录</p>
+<h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><h4 id="算数类型-arithmetic-type-、空类型-void"><a href="#算数类型-arithmetic-type-、空类型-void" class="headerlink" title="算数类型(arithmetic type)、空类型(void)"></a>算数类型(arithmetic type)、空类型(void)</h4><ul>
+<li>算数类型：字符型、整型、布尔值、浮点数</li>
+<li>空类型</li>
+</ul>
+<h4 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h4><h4 id="字面值常量："><a href="#字面值常量：" class="headerlink" title="字面值常量："></a>字面值常量：</h4><h3 id="2-变量："><a href="#2-变量：" class="headerlink" title="2/变量："></a>2/变量：</h3>]]></content>
       <categories>
-        <category>nothing</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>nothing</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -26,22 +37,6 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++基础</title>
-    <url>/https://github.com/LiuMuNan/LiuMuNan.github.io/2020/03/31/C++%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h1><p>复习C++Primer基础知识过程中的记录</p>
-<h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><h4 id="算数类型-arithmetic-type-、空类型-void"><a href="#算数类型-arithmetic-type-、空类型-void" class="headerlink" title="算数类型(arithmetic type)、空类型(void)"></a>算数类型(arithmetic type)、空类型(void)</h4><ul>
-<li>算数类型：字符型、整型、布尔值、浮点数</li>
-<li>空类型</li>
-</ul>
-<h4 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h4><h4 id="字面值常量："><a href="#字面值常量：" class="headerlink" title="字面值常量："></a>字面值常量：</h4><h3 id="2-变量："><a href="#2-变量：" class="headerlink" title="2/变量："></a>2/变量：</h3>]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
