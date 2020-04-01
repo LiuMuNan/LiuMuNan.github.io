@@ -1,32 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>计算机网络复习</title>
-    <url>/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Linux</title>
-    <url>/2020/03/31/Linux/</url>
-    <content><![CDATA[<h1 id="Linux-配置"><a href="#Linux-配置" class="headerlink" title="Linux 配置"></a>Linux 配置</h1><p>由于多次重装Linux系统，或者部署环境需要，把重复的配置过程记录一下：</p>
-<ul>
-<li>zsh &amp; oh-my-zsh</li>
-<li>shadowsocks</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>Tool</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++基础（一）</title>
-    <url>/2020/03/31/C++%E5%9F%BA%E7%A1%80/</url>
+    <url>/2020/04/01/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="C-基础（一）"><a href="#C-基础（一）" class="headerlink" title="C++基础（一）"></a>C++基础（一）</h1><p>复习C++Primer基础部分</p>
-<h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="1-基本内置类型："><a href="#1-基本内置类型：" class="headerlink" title="1/基本内置类型："></a>1/基本内置类型：</h3><p>包括算数类型(arithmetic type)、空类型(void)</p>
+<h2 id="Chapter2-基本内置类型："><a href="#Chapter2-基本内置类型：" class="headerlink" title="Chapter2 基本内置类型："></a>Chapter2 基本内置类型：</h2><h3 id="基本内置类型："><a href="#基本内置类型：" class="headerlink" title="基本内置类型："></a>基本内置类型：</h3><p>包括算数类型(arithmetic type)、空类型(void)</p>
 <h4 id="算数类型"><a href="#算数类型" class="headerlink" title="算数类型"></a>算数类型</h4><ul>
 <li>布尔:bool</li>
 <li>字符:char、wchar_t、char16_t、char32_t</li>
@@ -55,11 +33,11 @@
 <li>前缀：u=char16_t  U=char32_t  L=wchar_t  u8==char字符串</li>
 <li>后缀：u/U、l/L、ll/LL、f/F、l/L</li>
 </ul>
-<h3 id="2-变量："><a href="#2-变量：" class="headerlink" title="2/变量："></a>2/变量：</h3><p>定义、初始化、列表初始化(花括号)、默认初始化（不被初始化例外）</p>
+<h3 id="变量："><a href="#变量：" class="headerlink" title="变量："></a>变量：</h3><p>定义、初始化、列表初始化(花括号)、默认初始化（不被初始化例外）</p>
 <p>声明和定义的区别、</p>
 <p>标识符：字母数字下划线，字母/下划线开头</p>
 <p>作用域：作用域标识符</p>
-<h3 id="3-复合类型"><a href="#3-复合类型" class="headerlink" title="3/复合类型"></a>3/复合类型</h3><p>出现在声明语句中</p>
+<h3 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h3><p>出现在声明语句中</p>
 <ul>
 <li><p>引用：int&amp;a=b,必须初始化，已存在的对象别名</p>
 </li>
@@ -70,7 +48,7 @@
 <p>出现在表达式中：取地址符（&amp;）：得出地址、解引用符（*）：得出对象</p>
 <p>空指针：nullptr、NULL（预处理变量）、0</p>
 <p>指针的指针、指针的引用、不能引用地址</p>
-<h3 id="4-const限定符"><a href="#4-const限定符" class="headerlink" title="4/const限定符"></a>4/const限定符</h3><p>const在编译初始时被编译器替换成初始值，<strong>必须初始化</strong>。</p>
+<h3 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h3><p>const在编译初始时被编译器替换成初始值，<strong>必须初始化</strong>。</p>
 <p>希望多文件共享时前加extern关键字</p>
 <h4 id="对const的引用："><a href="#对const的引用：" class="headerlink" title="对const的引用："></a><strong>对const的引用</strong>：</h4><p>也叫常量引用，可以指向变量，可以类型不同，不能再赋值，可以初始化字面值</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp;p = a;  <span class="comment">//正确，const引用cosnt</span></span><br><span class="line"><span class="keyword">int</span> &amp;q = a;       <span class="comment">//错误，非const引用const</span></span><br><span class="line">p = <span class="number">2</span>;			  <span class="comment">//错误，前加const不能赋值</span></span><br></pre></td></tr></table></figure>
@@ -90,7 +68,7 @@
 <p>常量表达式：值不改变，编译时能得到结果，函数赋值给const不算</p>
 <p>constexpr：在编译时进行计算常量表达式、C++11，只允许字面值</p>
 <p>constexpr指针：顶层const</p>
-<h3 id="5-处理类型"><a href="#5-处理类型" class="headerlink" title="5/处理类型"></a>5/处理类型</h3><h4 id="类型别名："><a href="#类型别名：" class="headerlink" title="类型别名："></a>类型别名：</h4><ul>
+<h3 id="处理类型"><a href="#处理类型" class="headerlink" title="处理类型"></a>处理类型</h3><h4 id="类型别名："><a href="#类型别名：" class="headerlink" title="类型别名："></a>类型别名：</h4><ul>
 <li><p>typedef 原名 别名</p>
 </li>
 <li><p>using 别名=原名</p>
@@ -104,15 +82,31 @@
 <p>返回顶层const和引用，返回引用类型可以将其作为表达式一部分，加括号时返回引用：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">42</span>, *p = &amp;i, &amp;r = i;</span><br><span class="line"><span class="keyword">decltype</span>(r+<span class="number">0</span>) b;<span class="comment">//返回int</span></span><br><span class="line"><span class="keyword">decltype</span>(*p) c;<span class="comment">//错误，返回引用，必须初始化</span></span><br><span class="line"><span class="keyword">decltype</span>((i)) d; <span class="comment">//错误，返回引用，必须初始化</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="6-自定义数据结构"><a href="#6-自定义数据结构" class="headerlink" title="6/自定义数据结构"></a>6/自定义数据结构</h3><h4 id="struct："><a href="#struct：" class="headerlink" title="struct："></a>struct：</h4><p>两种定义方式，记得带分号</p>
+<h3 id="自定义数据结构"><a href="#自定义数据结构" class="headerlink" title="自定义数据结构"></a>自定义数据结构</h3><h4 id="struct："><a href="#struct：" class="headerlink" title="struct："></a>struct：</h4><p>两种定义方式，记得带分号</p>
 <p>类内初始值：C++11</p>
 <h4 id="编写头文件："><a href="#编写头文件：" class="headerlink" title="编写头文件："></a>编写头文件：</h4><p>预处理器概述：#define的用法、#ifdef和#ifndef和#endif的定义，无视作用域</p>
-<h2 id="Chapter3字符串、向量、数组"><a href="#Chapter3字符串、向量、数组" class="headerlink" title="Chapter3字符串、向量、数组"></a>Chapter3字符串、向量、数组</h2><h3 id="1-命名空间using声明"><a href="#1-命名空间using声明" class="headerlink" title="1/命名空间using声明"></a>1/命名空间using声明</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cin</span>;   <span class="comment">//可以直接使用cin</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;    <span class="comment">//可以直接使用std</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络复习</title>
+    <url>/2020/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="计算机网络复习"><a href="#计算机网络复习" class="headerlink" title="计算机网络复习"></a>计算机网络复习</h1><h2 id="1-网络基础："><a href="#1-网络基础：" class="headerlink" title="1/网络基础："></a>1/网络基础：</h2><p>OSI体系结构、TCP/IP结构</p>
+<h2 id="2-物理层、传输层"><a href="#2-物理层、传输层" class="headerlink" title="2/物理层、传输层"></a>2/物理层、传输层</h2><h2 id="3-链路层"><a href="#3-链路层" class="headerlink" title="3/链路层"></a>3/链路层</h2><h2 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4/网络层"></a>4/网络层</h2><h2 id="5-传输层"><a href="#5-传输层" class="headerlink" title="5/传输层"></a>5/传输层</h2><h2 id="6-应用层"><a href="#6-应用层" class="headerlink" title="6/应用层"></a>6/应用层</h2>]]></content>
+  </entry>
+  <entry>
+    <title>C++基础（二）</title>
+    <url>/2020/03/31/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="C-基础（二）"><a href="#C-基础（二）" class="headerlink" title="C++基础（二）"></a>C++基础（二）</h1><h2 id="Chapter3字符串、向量、数组"><a href="#Chapter3字符串、向量、数组" class="headerlink" title="Chapter3字符串、向量、数组"></a>Chapter3字符串、向量、数组</h2><h3 id="命名空间using声明"><a href="#命名空间using声明" class="headerlink" title="命名空间using声明"></a><strong>命名空间using声明</strong></h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cin</span>;   <span class="comment">//可以直接使用cin</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;    <span class="comment">//可以直接使用std</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-string"><a href="#2-string" class="headerlink" title="2/string"></a>2/string</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">string</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a><strong>string</strong></h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">string</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="定义、初始化"><a href="#定义、初始化" class="headerlink" title="定义、初始化"></a>定义、初始化</h4><p>直接/间接初始化：无有等号</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> s1;                <span class="comment">//默认空串</span></span><br><span class="line"><span class="built_in">string</span> s2 = s1;           <span class="comment">//副本</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(s1)</span></span>;            <span class="comment">//副本</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s3</span><span class="params">(<span class="string">"value"</span>)</span></span>;       <span class="comment">//字面值副本</span></span><br><span class="line"><span class="built_in">string</span> s3=<span class="string">"value"</span>;        <span class="comment">//副本</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s4</span><span class="params">(n,<span class="string">'c'</span>)</span></span>;         <span class="comment">//n个c</span></span><br></pre></td></tr></table></figure>
+<h4 id="定义、初始化"><a href="#定义、初始化" class="headerlink" title="定义、初始化"></a>定义、初始化</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> s1;                <span class="comment">//默认初始化，空串</span></span><br><span class="line"><span class="built_in">string</span> s2 = s1;           <span class="comment">//拷贝初始化，s1</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(s1)</span></span>;            <span class="comment">//直接初始化，s1</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s3</span><span class="params">(<span class="string">"value"</span>)</span></span>;       <span class="comment">//字面值副本，"value"</span></span><br><span class="line"><span class="built_in">string</span> s3=<span class="string">"value"</span>;        <span class="comment">//拷贝初始化，"value"</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s4</span><span class="params">(n,<span class="string">'c'</span>)</span></span>;         <span class="comment">//直接初始化，n个c</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h4><ul>
 <li>输入输出：os&lt;&lt;s ，is&gt;&gt;s，getline(is,s),</li>
@@ -125,18 +119,69 @@
 <h4 id="读写："><a href="#读写：" class="headerlink" title="读写："></a>读写：</h4><p>忽略开头结尾空白，空格、换行、制表符</p>
 <p>用while(cin&gt;&gt;word)读取未知数量</p>
 <p>用getline(cin,line)读取一整行</p>
-<h4 id="empty和size操作"><a href="#empty和size操作" class="headerlink" title="empty和size操作"></a>empty和size操作</h4><p>size返回的是string::size_type类型，C++11中可以用auto/decltype来推断，实际是无符号整数，比较的时候需要注意。</p>
-<h4 id="比较操作"><a href="#比较操作" class="headerlink" title="比较操作"></a>比较操作</h4><p>长度不同，字母相同，较短的小；某些位置不同，比较第一个相异字符</p>
-<h4 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h4><h4 id="相加"><a href="#相加" class="headerlink" title="相加"></a>相加</h4><p>+号两侧至少有一个string，不能字面值直接相加，可通过括号调整</p>
+<h4 id="empty和size"><a href="#empty和size" class="headerlink" title="empty和size"></a>empty和size</h4><p>size返回的是string::size_type类型，C++11中可以用auto/decltype来推断，实际是无符号整数，比较的时候需要注意不能涉及负数（会自动转为无符号数）。</p>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>长度不同，字母相同，较短的小；某些位置不同，比较第一个相异字符</p>
+<h4 id="赋值-amp-相加"><a href="#赋值-amp-相加" class="headerlink" title="赋值&amp;相加"></a>赋值&amp;相加</h4><p>+号两侧至少有一个string，不能字面值直接相加，可通过括号调整</p>
 <p>字面值和string类型不同</p>
-<h4 id="处理字符-cctype标准函数库，继承自C语言"><a href="#处理字符-cctype标准函数库，继承自C语言" class="headerlink" title="处理字符:cctype标准函数库，继承自C语言"></a>处理字符:cctype标准函数库，继承自C语言</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isalnum</span>(c);    <span class="comment">//字母或数字</span></span><br><span class="line"><span class="built_in">isalpha</span>(c);    <span class="comment">//字母</span></span><br><span class="line"><span class="built_in">iscntrl</span>(c);    <span class="comment">//控制字符</span></span><br><span class="line"><span class="built_in">isdigit</span>(c);    <span class="comment">//数字</span></span><br><span class="line"><span class="built_in">isgraph</span>(c);    <span class="comment">//不是空格但可打印</span></span><br><span class="line"><span class="built_in">islower</span>(c);    <span class="comment">//小写</span></span><br><span class="line"><span class="built_in">isprint</span>(c);    <span class="comment">//可打印</span></span><br><span class="line"><span class="built_in">ispunct</span>(c);    <span class="comment">//标点符号</span></span><br><span class="line">isspact(c);    <span class="comment">//空白：空格制表回车换行进纸</span></span><br><span class="line"><span class="built_in">isupper</span>(c);    <span class="comment">//大写</span></span><br><span class="line"><span class="built_in">isxdigit</span>(c);   <span class="comment">//十六进制</span></span><br><span class="line"><span class="built_in">tolower</span>(c);    <span class="comment">//输出大写对应小写，否则不变</span></span><br><span class="line"><span class="built_in">toupper</span>(c)；   <span class="comment">//输出小写对应大写，否则不变</span></span><br></pre></td></tr></table></figure>
+<h4 id="处理字符-cctype标准函数库，继承自C语言"><a href="#处理字符-cctype标准函数库，继承自C语言" class="headerlink" title="处理字符:cctype标准函数库，继承自C语言"></a>处理字符:cctype标准函数库，继承自C语言</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isalnum</span>(c);    <span class="comment">//字母或数字</span></span><br><span class="line"><span class="built_in">isalpha</span>(c);    <span class="comment">//字母</span></span><br><span class="line"><span class="built_in">iscntrl</span>(c);    <span class="comment">//控制字符</span></span><br><span class="line"><span class="built_in">isdigit</span>(c);    <span class="comment">//数字</span></span><br><span class="line"><span class="built_in">isgraph</span>(c);    <span class="comment">//不是空格但可打印</span></span><br><span class="line"><span class="built_in">islower</span>(c);    <span class="comment">//小写</span></span><br><span class="line"><span class="built_in">isprint</span>(c);    <span class="comment">//可打印</span></span><br><span class="line"><span class="built_in">ispunct</span>(c);    <span class="comment">//标点符号</span></span><br><span class="line"><span class="built_in">isspace</span>(c);    <span class="comment">//空白：空格制表回车换行进纸</span></span><br><span class="line"><span class="built_in">isupper</span>(c);    <span class="comment">//大写</span></span><br><span class="line"><span class="built_in">isxdigit</span>(c);   <span class="comment">//十六进制</span></span><br><span class="line"><span class="built_in">tolower</span>(c);    <span class="comment">//输出大写对应小写，否则不变</span></span><br><span class="line"><span class="built_in">toupper</span>(c)；   <span class="comment">//输出小写对应大写，否则不变</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
+<p>处理所有字符：范围for语句：for(auto c:str),C++11</p>
+<p>处理部分字符：下标（接收整型值自动转为string::size_type）/迭代器</p>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a><strong>vector</strong></h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span></span><br></pre></td></tr></table></figure>
+
+<p>一种类模板，使用时指出将类/函数实例化成何种类型</p>
+<h4 id="定义和初始化"><a href="#定义和初始化" class="headerlink" title="定义和初始化"></a>定义和初始化</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;T&gt; v1;              <span class="comment">//默认初始化，空</span></span><br><span class="line"><span class="function">vecter&lt;T&gt; <span class="title">v2</span><span class="params">(v1)</span></span>;          <span class="comment">//直接初始化，v1</span></span><br><span class="line"><span class="built_in">vector</span>&lt;T&gt; v2 = v1;         <span class="comment">//拷贝初始化，v1</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;T&gt; <span class="title">v3</span><span class="params">(n,val)</span></span>;       <span class="comment">//直接初始化，n个val</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;T&gt; <span class="title">v4</span><span class="params">(n)</span></span>;           <span class="comment">//值初始化，n个初始值</span></span><br><span class="line"><span class="built_in">vector</span>&lt;T&gt; v5&#123;a,b,c&#125;;       <span class="comment">//列表初始化，</span></span><br><span class="line"><span class="built_in">vector</span>&lt;T&gt; v5 = &#123;a,b,c&#125;;    <span class="comment">//拷贝初始化</span></span><br></pre></td></tr></table></figure>
+
+<p>一些例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1&#123;<span class="number">10</span>&#125;;       <span class="comment">//一个元素</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; v1&#123;<span class="number">10</span>&#125;;    <span class="comment">//10个元素</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">v2</span> <span class="params">(<span class="number">10</span>)</span></span>;      <span class="comment">//10个元素</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;v2(<span class="string">"hi"</span>);   <span class="comment">//错误，不能用字面值构造vector</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v3&#123;<span class="number">10</span>,<span class="number">1</span>&#125;;     <span class="comment">//10和1</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; v3&#123;<span class="number">10</span>,<span class="string">"hi"</span>&#125;;   <span class="comment">//10个"hi"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="vector操作"><a href="#vector操作" class="headerlink" title="vector操作"></a>vector操作</h4><ul>
+<li>大小：v.empty()，v.size();</li>
+<li>添加：v.push_back(t);</li>
+<li>取值：v[n];</li>
+<li>替换：v1 = v2;v1 = {a,b,c};</li>
+<li>比较：v1 !=v2;v1 == v2;</li>
+<li>&lt;,&lt;=,&gt;,&gt;=;</li>
+</ul>
+<p>基本与string一致，比较：第一对相异的值/值相同时看长度，使用时注意下标。</p>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a><strong>迭代器</strong></h3>]]></content>
       <categories>
         <category>C++</category>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux</title>
+    <url>/2020/03/31/Linux/</url>
+    <content><![CDATA[<h1 id="Linux-配置"><a href="#Linux-配置" class="headerlink" title="Linux 配置"></a>Linux 配置</h1><p>基本工具配置和命令待查</p>
+<ul>
+<li>zsh &amp; oh-my-zsh</li>
+<li>tmux</li>
+<li>shadowsocks</li>
+</ul>
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+
+<p>oh-my-zsh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh </span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>zsh-syntax-highlighting：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>zsh-autosuggestions</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>vi ~/.zshrc</p>
+<p>plugins=(git extract zsh-syntax-highlighting zsh-autosuggestions)</p>
+<h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><p>sudo apt-get install tmux</p>
+<h2 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h2>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Tool</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
