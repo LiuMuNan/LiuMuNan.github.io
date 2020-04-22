@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="C++基础（六）Chapter7类基础成员函数：类内声明，类内&#x2F;类外定义this指针：常量指针（指针的值不能修改，地址不变），区别于指向常量的指针（指针绑定过的对象值不能修改），由于this智能绑定当前对象，所以是一个常量指针，类型是class_type *const const成员函数this是非常量版本的常量指针（顶层const），this不可变，但指向对象的内容可变。 因为普通指针（非底层c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++基础（六）">
+<meta property="og:url" content="https://yoursite.com/2020/04/11/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89/index.html">
+<meta property="og:site_name" content="LiuMuNan">
+<meta property="og:description" content="C++基础（六）Chapter7类基础成员函数：类内声明，类内&#x2F;类外定义this指针：常量指针（指针的值不能修改，地址不变），区别于指向常量的指针（指针绑定过的对象值不能修改），由于this智能绑定当前对象，所以是一个常量指针，类型是class_type *const const成员函数this是非常量版本的常量指针（顶层const），this不可变，但指向对象的内容可变。 因为普通指针（非底层c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-11T06:21:03.000Z">
+<meta property="article:modified_time" content="2020-04-22T07:29:47.448Z">
+<meta property="article:author" content="LiuMuNan">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yoursite.com/2020/04/11/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>C++基础（六） | LiuMuNan</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="LiuMuNan" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiuMuNan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yoursite.com/2020/04/11/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LiuMuNan">
+      <meta itemprop="description" content="Keep improving">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiuMuNan">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++基础（六）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-11 14:21:03" itemprop="dateCreated datePublished" datetime="2020-04-11T14:21:03+08:00">2020-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-22 15:29:47" itemprop="dateModified" datetime="2020-04-22T15:29:47+08:00">2020-04-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="C-基础（六）"><a href="#C-基础（六）" class="headerlink" title="C++基础（六）"></a>C++基础（六）</h1><h2 id="Chapter7"><a href="#Chapter7" class="headerlink" title="Chapter7"></a>Chapter7</h2><h3 id="类基础"><a href="#类基础" class="headerlink" title="类基础"></a><strong>类基础</strong></h3><h5 id="成员函数：类内声明，类内-类外定义"><a href="#成员函数：类内声明，类内-类外定义" class="headerlink" title="成员函数：类内声明，类内/类外定义"></a>成员函数：类内声明，类内/类外定义</h5><h5 id="this指针："><a href="#this指针：" class="headerlink" title="this指针："></a>this指针：</h5><p>常量指针（指针的值不能修改，地址不变），区别于指向常量的指针（指针绑定过的对象值不能修改），由于this智能绑定当前对象，所以是一个常量指针，类型是class_type *const</p>
+<h4 id="const成员函数"><a href="#const成员函数" class="headerlink" title="const成员函数"></a>const成员函数</h4><p>this是非常量版本的常量指针（顶层const），this不可变，但指向对象的内容可变。</p>
+<p>因为普通指针（非底层const）不能指向常量对象，this指针是顶层const，也不能指向常量对象，所以在声明常量对象时，应当修改this的类型，即将其声明为</p>
+<p>const class_type *const，底层+顶层的const指针，这样才可以指向const对象。</p>
+<p>方法是在函数后面加一个const，即</p>
+<p>return_type fun_name(para_list) const{}</p>
+<p>在成员函数的调用过程中，实际上有一个this指针参数指向当前类的值,如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class_type demo;</span><br><span class="line">demo.fun();     <span class="comment">//等价于demo.fun(&amp;demo)</span></span><br><span class="line">class_type::fun()&#123;&#125;;   </span><br><span class="line"><span class="comment">//=class_type::fun(class_type *const this)&#123;&#125;</span></span><br><span class="line">class_type::fun()<span class="keyword">const</span>&#123;&#125;; </span><br><span class="line"><span class="comment">//=class_type::fun(const class_type *const this)&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>同时对于没有修改this的对象，常量对象不能调用普通函数（只能调用常量函数）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class <span class="title">people</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getScore</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> score;&#125;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">const</span> people <span class="title">p1</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">int</span> res = p1.getScore() <span class="comment">//错误，因为getScore不是常量函数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="this作返回值："><a href="#this作返回值：" class="headerlink" title="this作返回值："></a>this作返回值：</h4><p>return *this;   返回值类型应当是引用，否则返回的只是this指针的临时副本，不能改变类的值。</p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>和类名相同、无返回类型、可重载，不能const</p>
+<p>（合成的）默认构造函数：对变量执行类内初始值初始化/默认初始化</p>
+<p>不能依赖默认构造函数：</p>
+<ul>
+<li>如果定义了其他构造函数，则没有默认构造函数；</li>
+<li>复合类型默认初始化为未定义。</li>
+<li>有的编译器没有默认构造函数</li>
+</ul>
+<p>C++11标准</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class_name() = <span class="keyword">default</span>; <span class="comment">//表示默认构造函数</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数初始值列表：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class_name(para a,para b):mem1(a),mem2(b)&#123;&#125;  <span class="comment">//mem1=a,mem2=b</span></span><br></pre></td></tr></table></figure>
+
+<p>如果某个成员被忽略时，将使用合成默认构造函数一致的方式（类内初始值/默认初始化）</p>
+<h4 id="拷贝、赋值、析构"><a href="#拷贝、赋值、析构" class="headerlink" title="拷贝、赋值、析构"></a>拷贝、赋值、析构</h4><p>如果没有定义，会有编译器合成的默认版本。</p>
+<p>默认版本难以管理动态对象，有动态对象时最好转成string/vector</p>
+<h3 id="访问控制和封装"><a href="#访问控制和封装" class="headerlink" title="访问控制和封装"></a><strong>访问控制和封装</strong></h3><p>public关键字：都可以访问</p>
+<p>private关键字：只有类成员函数可以访问</p>
+<h4 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h4><p>使得其他类或函数可以访问其非公有成员。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">friend</span> ret_type <span class="title">fun_name</span><span class="params">(para_list)</span></span>;     <span class="comment">//在类内声明</span></span><br></pre></td></tr></table></figure>
+
+<p>还需要再类外再声明一次。</p>
+<h3 id="类的其他特性"><a href="#类的其他特性" class="headerlink" title="类的其他特性"></a><strong>类的其他特性</strong></h3><h4 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h4><p>可以定义别名，且可以带访问控制，</p>
+<p>定义类型的成员必须先定义后使用，不同于普通成员</p>
+<p>内联函数（可以在类内声明时加、类外定义时加）、重载函数，和之前类似</p>
+<p>可变数据成员（mutable）：即使在const对象或成员函数中也可以修改</p>
+<h4 id="返回-this："><a href="#返回-this：" class="headerlink" title="返回*this："></a>返回*this：</h4><p>如果返回不是引用，则返回一个副本，不能改变原对象值。</p>
+<p>从const函数返回*this：const成员函数返回的this指针是指向常量的指针（底层const），不能通过其调用其他成员函数。只有返回引用时才能使用（此时返回一个常量应用（顶层const））</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">class_name <span class="title">fun_name</span><span class="params">()</span><span class="keyword">const</span></span>;</span><br><span class="line"><span class="comment">//返回const class_name *const this</span></span><br><span class="line"><span class="function">class_name &amp;<span class="title">fun_name</span><span class="params">()</span><span class="keyword">const</span></span>;</span><br><span class="line"><span class="comment">//返回class_name *const this的引用</span></span><br></pre></td></tr></table></figure>
+
+<p>基于const的重载：成员函数const和非const可以重载</p>
+<ul>
+<li>指向常量的*this可以调用非const和const成员函数，但后者匹配更好</li>
+<li>指向非常量的*this只能调用非const成员函数</li>
+</ul>
+<h4 id="类类型"><a href="#类类型" class="headerlink" title="类类型"></a>类类型</h4><p>类的声明：可以只声明不定义</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class_name demo;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_name</span> <span class="title">demo1</span>;</span>     <span class="comment">//两条声明等价</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>声明：声明之前可以未定义</li>
+<li>定义：不能包含自身类型，但可以包含自身类型的引用或指针</li>
+<li>创建：创建之前需要先定义</li>
+</ul>
+<h4 id="友元深入"><a href="#友元深入" class="headerlink" title="友元深入"></a>友元深入</h4><p><strong>友元类</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">class_name</span>;</span>   <span class="comment">//在类中</span></span><br></pre></td></tr></table></figure>
+
+<p>友元类的成员函数可以访问此类中所有成员（含private）</p>
+<p>友元关系无传递性</p>
+<p><strong>友元成员函数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">friend</span> return_type <span class="title">friend_class::fun_name</span><span class="params">(para_list)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用时：</p>
+<ol>
+<li>定义友元成员函数所在类friend_class，并声明友元函数fun_name，但不能定义友元函数</li>
+<li>声明本类</li>
+<li>定义本类，声明友元</li>
+<li>定义友元函数，并在函数中使用本类</li>
+</ol>
+<p>定义<strong>重载</strong>友元函数时每一个都要声明</p>
+<p>作用域：</p>
+<ul>
+<li>类和非成员函数的声明不一定要在友元声明之前，可以先友元声明，后声明本类，假定该类存在</li>
+<li>在类内部定义友元函数时，要在外部补充声明使其可见。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">X</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;     <span class="comment">//友元定义和声明（对应第一条）</span></span><br><span class="line">    X()&#123;f();&#125;      <span class="comment">//错误，f非本类函数，没有在类外声明（对应第二条）</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">h</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">X::g</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> f();&#125;      <span class="comment">//错误，f未在类外声明（对应第二条）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;                    <span class="comment">//此时f声明了</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">X::h</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> f();&#125;      <span class="comment">//正确，此时f声明了（对应第二条）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="类作用域"><a href="#类作用域" class="headerlink" title="类作用域"></a><strong>类作用域</strong></h3><p>类作用域之外，对象、引用、指针使用成员访问运算符</p>
+<p>类类型成员，使用作用域运算符</p>
+<p>一个类就是一个作用域：在外部定义成员函数必须同时提供类名和函数名</p>
+<h4 id="名字查找"><a href="#名字查找" class="headerlink" title="名字查找"></a>名字查找</h4><ul>
+<li><p>首先，在名字所在块内寻找声明语句</p>
+</li>
+<li><p>如果没找到，继续查找外层作用域</p>
+</li>
+<li><p>如果没找到，报错</p>
+</li>
+</ul>
+<p>类的定义：先编译成员声明，类全部可见后编译函数体</p>
+<p>类型名（typedef）特殊处理：不能重新定类型名</p>
+<p>成员函数中的名字查找：成员函数内-&gt;类内-&gt;成员函数定义之前的作用域</p>
+<ul>
+<li>类内：可以使用this或类作用域符</li>
+<li>类外：可以使用::符号表示全局</li>
+<li>使用时内部作用域同名变量会隐藏外部同名变量</li>
+</ul>
+<h3 id="构造函数深入"><a href="#构造函数深入" class="headerlink" title="构造函数深入"></a><strong>构造函数深入</strong></h3><p>初始值列表=初始化、在函数体中使用等号=先默认初始化再赋值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class_name::class_name(<span class="built_in">string</span> a, <span class="keyword">int</span> b):x(a),y(b)&#123;&#125;<span class="comment">//初始化</span></span><br><span class="line">class_name::class_name(<span class="built_in">string</span> a, <span class="keyword">int</span> b)&#123;x=a;y=b;&#125;<span class="comment">//赋值</span></span><br></pre></td></tr></table></figure>
+
+<p>对于const或引用等必须初始化的值，使用初始值列表才行</p>
+<p>顺序：按照定义的顺序</p>
+<p>默认实参：给构造函数的参数定义默认值，则改函数是默认构造函数</p>
+<h4 id="委托构造函数C-11"><a href="#委托构造函数C-11" class="headerlink" title="委托构造函数C++11"></a>委托构造函数C++11</h4><p>委托其他构造函数进行构造的函数，先执行代码，再执行委托函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class_name::class_name(<span class="built_in">string</span> a, <span class="keyword">int</span> b):x(a),y(b)&#123;&#125;<span class="comment">//初始化</span></span><br><span class="line">class_name::class_name():class_name(<span class="string">""</span>,<span class="number">0</span>)&#123;&#125;<span class="comment">//委托上一个函数</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="默认构造函数的作用"><a href="#默认构造函数的作用" class="headerlink" title="默认构造函数的作用"></a>默认构造函数的作用</h4><p>当对象被默认初始化或值初始化时执行默认构造函数</p>
+<p>默认初始化：</p>
+<ul>
+<li>当块内不适用任何初始值定义一个非静态变量时</li>
+<li>当类本身含有类类型成员且使用合成的默认构造函数时</li>
+<li>当类类型成员没有构造函数初始值列表中显示初始化时</li>
+</ul>
+<p>值初始化：</p>
+<ul>
+<li>数组初始化过程中初始值数量少于数组大小</li>
+<li>不适用初始值定义局部静态变量</li>
+<li>书写形如T()的表达式显式请求值初始化</li>
+</ul>
+<p>使用默认构造函数，class_name instance_name; //不带括号</p>
+<h4 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h4><p>为类定义转换构造函数（只接收一个实参），如果一个类可以由单个string构造。</p>
+<p>在实际使用中可以进行string到这个类的隐式类型转换（自动转换成类来使用）</p>
+<p>但这种转换只允许一步转换，不允许字面值-&gt;string-&gt;类的两步转换</p>
+<p>且该转换创建的是<strong>临时对象</strong>，用完即丢弃。</p>
+<p>给构造函数添加关键字<strong>explicit</strong>：阻止这种隐式转换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">class_name</span><span class="params">(para_list)</span></span>&#123;&#125;;<span class="comment">//该函数不能用于隐式类型转换</span></span><br></pre></td></tr></table></figure>
+
+<p>但可以进行强制转换：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class_name(other_type);</span><br><span class="line"><span class="keyword">static_cast</span>&lt;class_name&gt;(other_type);</span><br></pre></td></tr></table></figure>
+
+<p>标准库显示构造函数类：</p>
+<ul>
+<li><p>接收单参数的const char*的string构造函数，不是explicit的</p>
+</li>
+<li><p>接收容量参数的vector构造函数</p>
+</li>
+</ul>
+<h4 id="聚合类"><a href="#聚合类" class="headerlink" title="聚合类"></a>聚合类</h4><p>定义如下：</p>
+<ul>
+<li>所有成员都是public的</li>
+<li>没有任何构造函数</li>
+<li>没有类内初始值</li>
+<li>没有基类，没有virtual函数</li>
+</ul>
+<p>可以提供花括号括起来的初始值成员列表，顺序需要一致</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class_name demo=&#123;mem1,mem2,...&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字面值常量类"><a href="#字面值常量类" class="headerlink" title="字面值常量类"></a>字面值常量类</h4><p>聚合类：数据成员都是字面值类型则是字面值常量类</p>
+<p>非聚合类，需要符合以下要求</p>
+<ul>
+<li>数据成员都是字面值类型</li>
+<li>类至少含有一个constexpr构造函数</li>
+<li>有类内初始值的数据成员初始值是常量表达式，成员属于类类型则需要使用对应类的constexpr构造函数</li>
+<li>类必须使用析构函数的默认定义</li>
+</ul>
+<p>constexpr构造函数：字面值常量类必须至少提供一个。</p>
+<ul>
+<li><p>可声明为=default或删除函数的形式，</p>
+</li>
+<li><p>否则要符合构造函数（无返回语句）和constexpr（唯一可执行语句是返回语句）的要求，即函数体为空</p>
+</li>
+<li><p>要初始化所有数据成员，初始值或使用constexpr构造函数</p>
+</li>
+<li></li>
+</ul>
+<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a><strong>类的静态成员</strong></h3><p>变量与类相关，而非与每个对象关联。</p>
+<p>声明：static关键字，可以是常量、指针、引用、类类型，可以public或private</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> type demo;</span><br><span class="line"><span class="function"><span class="keyword">static</span> return_type <span class="title">func</span><span class="params">(para_list)</span></span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>静态成员函数不能const，不能使用this，智能访问静态成员</p>
+<p>使用：包括数据成员和函数成员</p>
+<ul>
+<li>域运算符，class_name::mem;</li>
+<li>对象、引用或指针 demo.mem或demo-&gt;mem;</li>
+<li>函数成员使用时不用域运算符</li>
+</ul>
+<p>定义：</p>
+<p>函数成员：在类外部定义时，不能重复static关键字</p>
+<p>数据成员：必须在类外部定义和初始化，在类内初始化时必须是constexpr</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type_name class_name::static_mem = static_func();</span><br><span class="line"><span class="comment">//class_name之后就是类作用域了，此处static_func可以是私有成员</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>静态成员还可以做默认实参，普通成员则不行</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/03/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89/" rel="prev" title="C++基础（五）">
+      <i class="fa fa-chevron-left"></i> C++基础（五）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/22/C++%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%83%EF%BC%89/" rel="next" title="C++基础（七）">
+      C++基础（七） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-基础（六）"><span class="nav-number">1.</span> <span class="nav-text">C++基础（六）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter7"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类基础"><span class="nav-number">1.1.1.</span> <span class="nav-text">类基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#成员函数：类内声明，类内-类外定义"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">成员函数：类内声明，类内&#x2F;类外定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#this指针："><span class="nav-number">1.1.1.0.2.</span> <span class="nav-text">this指针：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const成员函数"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">const成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this作返回值："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">this作返回值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝、赋值、析构"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">拷贝、赋值、析构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制和封装"><span class="nav-number">1.1.2.</span> <span class="nav-text">访问控制和封装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#友元"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">友元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的其他特性"><span class="nav-number">1.1.3.</span> <span class="nav-text">类的其他特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类成员"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">类成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回-this："><span class="nav-number">1.1.3.2.</span> <span class="nav-text">返回*this：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类类型"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">类类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#友元深入"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">友元深入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类作用域"><span class="nav-number">1.1.4.</span> <span class="nav-text">类作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#名字查找"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">名字查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数深入"><span class="nav-number">1.1.5.</span> <span class="nav-text">构造函数深入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#委托构造函数C-11"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">委托构造函数C++11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认构造函数的作用"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">默认构造函数的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式类型转换"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">隐式类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合类"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">聚合类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字面值常量类"><span class="nav-number">1.1.5.5.</span> <span class="nav-text">字面值常量类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的静态成员"><span class="nav-number">1.1.6.</span> <span class="nav-text">类的静态成员</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LiuMuNan</p>
+  <div class="site-description" itemprop="description">Keep improving</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiuMuNan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
